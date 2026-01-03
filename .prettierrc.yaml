@@ -1,0 +1,12 @@
+singleQuote: true
+semi: false
+printWidth: 120
+trailingComma: all
+endOfLine: auto
+tabWidth: 2
+bracketSpacing: true
+arrowParens: avoid
+checkIgnorePragma: true
+singleAttributePerLine: true
+plugins:
+  - prettier-plugin-tailwindcss

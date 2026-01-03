@@ -1,0 +1,35 @@
+# Ignore configuration and lock files
+tsconfig.json
+tsconfig.app.json
+tsconfig.module.json
+*.lock
+.prettierignore
+.prettierrc.yaml
+eslint.config.mjs
+.eslintignore
+.gitignore
+vite.config.ts
+postcss.config.mjs
+
+# Ignore all JSON files except package.json (if needed, uncomment next line)
+*.json
+
+# Ignore all YML files
+*.yml
+
+# Ignore Markdown files
+*.md
+
+# Ignore build and dependency directories
+node_modules/
+out/
+public/
+assets/
+dist/
+src/components/ui/
+
+.husky
+
+.gitattributes
+.editorconfig
+
