@@ -179,7 +179,7 @@ export function AppSidebar() {
   const renderDropdownMenuSub = (menuChildren: ISidebarMenuItem[], level: number, parentKey = ''): React.ReactNode => {
     return (
       <DropdownMenuPortal>
-        <DropdownMenuSubContent>
+        <DropdownMenuSubContent className="w-50">
           {menuChildren.map((dropMenuItem, index) => {
             const Icon = dropMenuItem.icon
             const haveIcon = !!dropMenuItem.icon
@@ -188,7 +188,7 @@ export function AppSidebar() {
 
             if (!dropMenuItem.path && Array.isArray(dropMenuItem.childrens) && dropMenuItem.childrens.length > 0) {
               return (
-                <DropdownMenuSub>
+                <DropdownMenuSub key={key}>
                   <DropdownMenuSubTrigger
                     className={cn(
                       'flex h-9 w-full cursor-pointer items-center justify-between rounded-md p-2 [&>svg]:hidden',
@@ -198,9 +198,9 @@ export function AppSidebar() {
                       },
                     )}
                   >
-                    <span className="inline-flex items-center space-x-2">
+                    <span className="inline-flex min-w-0 flex-1 items-center space-x-2">
                       {haveIcon && Icon}
-                      <span>{dropMenuItem.title}</span>
+                      <span className="flex-1 truncate text-start">{dropMenuItem.title}</span>
                     </span>
                     <span>
                       <ChevronRightIcon
@@ -227,7 +227,7 @@ export function AppSidebar() {
                   })}
                 >
                   {haveIcon && Icon}
-                  <span>{dropMenuItem.title}</span>
+                  <span className="flex-1 truncate text-start">{dropMenuItem.title}</span>
                 </Link>
               </DropdownMenuItem>
             )
@@ -259,9 +259,9 @@ export function AppSidebar() {
                         'hover:text-(-color-sidebar-accent-foreground) hover:bg-(--color-sidebar-accent)': !isActive,
                       })}
                     >
-                      <span className="inline-flex items-center space-x-2">
+                      <span className="inline-flex min-w-0 flex-1 items-center space-x-2">
                         {haveIcon && Icon}
-                        <span>{menuItem.title}</span>
+                        <span className="flex-1 truncate text-start">{menuItem.title}</span>
                       </span>
                       <span>
                         <ChevronRightIcon
@@ -289,7 +289,7 @@ export function AppSidebar() {
                     className="inline-flex h-full w-full items-center"
                   >
                     {haveIcon && Icon}
-                    <span>{menuItem.title}</span>
+                    <span className="flex-1 truncate text-start">{menuItem.title}</span>
                   </Link>
                 </SidebarMenuSubButton>
               </SidebarMenuSubItem>
@@ -304,6 +304,7 @@ export function AppSidebar() {
         <DropdownMenuContent
           side="right"
           align="start"
+          className="w-50"
         >
           {menuChildren.map((dropMenuItem, index) => {
             const Icon = dropMenuItem.icon
@@ -313,7 +314,7 @@ export function AppSidebar() {
 
             if (!dropMenuItem.path && Array.isArray(dropMenuItem.childrens) && dropMenuItem.childrens.length > 0) {
               return (
-                <DropdownMenuSub>
+                <DropdownMenuSub key={key}>
                   <DropdownMenuSubTrigger
                     className={cn(
                       'flex h-9 w-full cursor-pointer items-center justify-between rounded-md p-2 [&>svg]:hidden',
@@ -323,9 +324,9 @@ export function AppSidebar() {
                       },
                     )}
                   >
-                    <span className="inline-flex items-center space-x-2">
+                    <span className="inline-flex min-w-0 flex-1 items-center space-x-2">
                       {haveIcon && Icon}
-                      <span>{dropMenuItem.title}</span>
+                      <span className="flex-1 truncate text-start">{dropMenuItem.title}</span>
                     </span>
                     <span>
                       <ChevronRightIcon
@@ -352,7 +353,7 @@ export function AppSidebar() {
                   })}
                 >
                   {haveIcon && Icon}
-                  <span>{dropMenuItem.title}</span>
+                  <span className="flex-1 truncate text-start">{dropMenuItem.title}</span>
                 </Link>
               </DropdownMenuItem>
             )
@@ -475,7 +476,10 @@ export function AppSidebar() {
                   </Avatar>
                   {openSidebar && <span className="text-[13px]">User</span>}
                 </DropdownMenuTrigger>
-                <DropdownMenuContent side="top">
+                <DropdownMenuContent
+                  side="top"
+                  className="w-[256px]"
+                >
                   <DropdownMenuItem className="flex cursor-pointer items-center space-x-1">
                     <User2Icon />
                     <span>Tài khoản</span>
